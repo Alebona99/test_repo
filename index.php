@@ -1,16 +1,29 @@
 <?php
-$link = mysqli_connect('db', 'root', 'password');
+$id = $_REQUEST['id'];
+$product = $_REQUEST['product'];
 
-if (!$link){
-    echo "Error: impossibile connettersi al db".PHP_EOL;
-    echo "Debugging errno".mysqli_connect_errno().PHP_EOL;
-    echo "Debugging error".mysqli_connect_error().PHP_EOL;
+if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    echo "Hai mandato una richiesta POST!!";
+    echo $id.$product;
     exit;
 }
-echo "Connessione al databse riuscita".PHP_EOL;
-echo "Informazioni Host: ".mysqli_get_host_info($link).PHP_EOL;
 
-mysqli_close($link);
+else if ($_SERVER["REQUEST_METHOD"] == "GET"){
+    echo "Hai mandato una richiesta GET!!";
+    echo $id.$product;
+    exit;
+}
 
+else if ($_SERVER["REQUEST_METHOD"=="PUT"]){
+    echo "Hai mandato una richiesta PUT!!";
+    echo $id.$product;
+    exit;
+}
+
+else if ($_SERVER["REQUEST_METHOD"=="DELETE"]){
+    echo "Hai mandato una richiesta DELETE";
+    echo $id.$product;
+    exit;
+}
 ?>
 
